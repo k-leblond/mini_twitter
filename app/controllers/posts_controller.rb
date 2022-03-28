@@ -6,8 +6,14 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     @post.save!
-    if @post.save
+    if @post.save!
       flash[:notice] = "Your post has been submitted"
+        (current_user.followers + [current_user]).each { | user |
+        FeedChannel.broadcast_to(
+          user,
+          render_to_string(partial: "post", locals: { post: @post })
+          )
+      }
     else
       flash[:alert] = "Something went wrong"
     end

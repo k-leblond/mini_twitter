@@ -12,18 +12,33 @@
       </div>
     <div class="container">
         <h3>Share with your community!</h3>
-          <%= simple_form_for @post do |f| %>
+
+          <%= simple_form_for @post, remote: true,
+            html: {data: {feed_subscription_target: "form", action: "ajax:success->feed-subscription#reset"}
+            } do |f| %>
             <%= f.input :content, label: false, placeholder: "What's on your mind?" %>
             <%= f.submit %>
           <% end %>
     </div>
   </div>
-  <div class="column right">
+  <div class="column right" data-controller="feed-subscription" data-feed-subscription-feed-id-value="<%= current_user.id %>">
     <h1>Feed</h1>
-      <div class="container">
-        <% @posts.order(id: :desc).each do |post| %>
+    <div class="container" >
+      <div class="container-message  <% if @posts.empty? %>d-none<% end %>" data-feed-subscription-target="messages">
+        <% @posts.order(id: :desc).each do | post | %>
           <%= render "posts/post", post: post %>
         <% end %>
       </div>
+
+      <br><br>
+        <div class="card-bg text-center <% if @posts.any? %>d-none<% end %>" data-feed-subscription-target="follow">
+          <h1>You don't have any posts yet</h1>
+        <br>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <h2>Make your first post or   </h2>
+              <h2 class='mt-3'><%= link_to 'Follow someone', posts_path, class: 'yellow-button-lg w-100' %></h2>
+          </div>
+        </div>
+    </div>
   </div>
 </div>
