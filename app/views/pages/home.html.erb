@@ -1,17 +1,29 @@
-<div class="container">
-  <h1>Share with your community!</h1>
+<div class="row">
+  <div class="column left">
+    <% @user = current_user %>
+    <h1 class="text-center">Welcome back, <%= "#{@user.name}" %> 🎉</h1>
+      <div class="stats">
+        <a href="<%= following_user_path(@user) %>">
+          <strong id="following" class="stat"><%= @user.following.count %></strong> following
+        </a>
+        <a href="<%= followers_user_path(@user) %>">
+          <strong id="followers" class="stat"> <%= @user.followers.count %></strong> followers
+        </a>
+      </div>
     <div class="container">
-      <%= simple_form_for @post do |f| %>
-        <%= f.input :content, label: false, placeholder: "What's on your mind?" %>
-        <%= f.submit %>
-      <% end %>
+        <h3>Share with your community!</h3>
+          <%= simple_form_for @post do |f| %>
+            <%= f.input :content, label: false, placeholder: "What's on your mind?" %>
+            <%= f.submit %>
+          <% end %>
     </div>
-</div>
-<div class="container">
-  <h1>Feed</h1>
-    <div class="container">
-      <% @posts.order(id: :desc).each do |post| %>
-        <%= render "posts/post", post: post %>
-      <% end %>
-    </div>
+  </div>
+  <div class="column right">
+    <h1>Feed</h1>
+      <div class="container">
+        <% @posts.order(id: :desc).each do |post| %>
+          <%= render "posts/post", post: post %>
+        <% end %>
+      </div>
+  </div>
 </div>
