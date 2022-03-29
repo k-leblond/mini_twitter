@@ -19,6 +19,8 @@ class User < ApplicationRecord
 
   has_many :followers, through: :passive_relationships, source: :follower
 
+  has_one_attached :photo
+
   def follow(other_user)
     following << other_user
   end
