@@ -1,0 +1,27 @@
+<div class="container">
+<h1><%= @user.name %>'s followers</h1>
+</div>
+
+<div class="container">
+  <% @user.followers.each do |follower| %>
+    <%= follower.name %>
+  <% end %>
+</div>
+<%= console %>
+
+<div class="user-card">
+  <div class="user-avatar">
+
+  </div>
+  <div class="user-card-name">
+    <h6>Kevin</h6>
+  </div>
+  <div class="user-card-stats">
+    <a href="<%= following_user_path(@user) %>">
+      <strong id="following" class="stat"><%= @user.following.count %></strong> following
+    </a>
+    <a href="<%= followers_user_path(@user) %>">
+      <strong id="followers" class="stat"> <%= @user.followers.count %></strong> followers
+    </a>
+  </div>
+</div>
