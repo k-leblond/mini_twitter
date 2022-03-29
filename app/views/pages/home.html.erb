@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row"  data-controller="feed-subscription" data-feed-subscription-feed-id-value="<%= current_user.id %>">
   <div class="column left">
     <% @user = current_user %>
     <h1 class="text-center">Welcome back, <%= "#{@user.name}" %> 🎉</h1>
@@ -12,7 +12,6 @@
       </div>
     <div class="container">
         <h3>Share with your community!</h3>
-
           <%= simple_form_for @post, remote: true,
             html: {data: {feed_subscription_target: "form", action: "ajax:success->feed-subscription#reset"}
             } do |f| %>
@@ -21,9 +20,9 @@
           <% end %>
     </div>
   </div>
-  <div class="column right" data-controller="feed-subscription" data-feed-subscription-feed-id-value="<%= current_user.id %>">
+  <div class="column right">
     <h1>Feed</h1>
-    <div class="container" >
+    <div class="container">
       <div class="container-message  <% if @posts.empty? %>d-none<% end %>" data-feed-subscription-target="messages">
         <% @posts.order(id: :desc).each do | post | %>
           <%= render "posts/post", post: post %>

@@ -11,6 +11,7 @@ export default class extends Controller {
       { channel: "FeedChannel", id: this.feedIdValue },
       { received: data => this.#insertMessageScrollDownAndResetForm(data)},
     )
+    this.formTarget.reset()
   }
 
   disconnect() {
@@ -27,6 +28,5 @@ export default class extends Controller {
 
   reset(){
     this.formTarget.reset()
-    // this.searchInputTarget.value = "";
   }
 }
