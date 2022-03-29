@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   def home
     @post = Post.new
     following_ids = current_user.following.ids+[current_user.id]
-    @posts = Post.where(user_id: following_ids).order(created_at: :desc)
+    @posts = Post.where(user_id: following_ids).paginate(page: params[:page], per_page: 10)
+
   end
 
 end

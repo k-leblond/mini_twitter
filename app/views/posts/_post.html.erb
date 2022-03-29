@@ -1,5 +1,6 @@
 <div class="container">
  <h3><%= post.user.name %></h3>
  <p><%= post.content %></p>
- <p>Posted on: <%= post.created_at.strftime("%d %B %Y") %></p>
+ <%# <p>Posted on: <%= post.created_at.strftime("%d %B %Y")</p> %>
+  Posted <%= time_ago_in_words(post.created_at) %> ago.
 </div>
