@@ -20,7 +20,7 @@ anakin = User.create!(email: "anakin@skywalker.com", password: "123456", name: "
 yoda = User.create!(email: "yoda@starwars.com", password: "123456", name: "Yoda")
 shakespear = User.create!(email: "shake@spear.com", password: "123456", name: "Shakespear")
 rick = User.create!(email: "rick@morty.com", password: "123456", name: "Rick Sanchez")
-jake = User.create!(email: "jake@peralta.com", password: "123456", name: "Jake Peralta")
+# jake = User.create!(email: "jake@peralta.com", password: "123456", name: "Jake Peralta")
 maurice = User.create!(email: "maurice@moss.com", password: "123456", name: "Maurice Moss")
 
 puts "Creating posts...."

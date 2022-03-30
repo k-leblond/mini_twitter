@@ -1,0 +1,12 @@
+<h1>Discover the community!</h1>
+
+<div class="container">
+  <ul>
+    <% @posts.each do |post| %>
+    <li>
+    <%= post.user %>
+    <%= post.content %>
+    </li>
+    <% end %>
+  </ul>
+</div>
