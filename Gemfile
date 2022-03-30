@@ -34,6 +34,8 @@ gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form', github: 'heartcombo/simple_form'
 
+gem 'faker'
+
 # gem 'will_paginate', '~> 3.3'
 
 gem 'will_paginate-bootstrap'

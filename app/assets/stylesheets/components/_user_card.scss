@@ -14,7 +14,18 @@
     cursor: pointer;
   }
 
+  img{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+  }
+
   a{
     text-decoration: none;
   }
+}
+
+.user-card-name{
+  display: flex;
 }
