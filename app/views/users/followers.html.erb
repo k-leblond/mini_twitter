@@ -1,13 +1,13 @@
 <div class="container">
-<h1><%= @user.name %>'s followers</h1>
+  <h1><%= @user.name %>'s followers</h1>
 </div>
 
-<div class="container">
-  <% @user.followers.each do |follower| %>
-    <%= follower.name %>
-  <% end %>
-</div>
-<%= console %>
+<% if @user.followers.empty? %>
+  <div class="container">
+    <h1>No followers yet!</h1>
+  </div>
+
+<% else %>
 
 <div class="user-card">
   <div class="user-avatar">
@@ -17,17 +17,11 @@
       <%= image_tag("avatardefaut.jpg", alt: "avatar")%>
     <% end %>
   </div>
-  <div class="user-card-name">
-    <h6>Kevin</h6>
-  </div>
-    <div class="user-card-stats">
-      <a href="<%= following_user_path(@user) %>">
-        <strong id="following" class="stat"><%= @user.following.count %></strong> following
-      </a>
-      <a href="<%= followers_user_path(@user) %>">
-        <strong id="followers" class="stat"> <%= @user.followers.count %></strong> followers
-      </a>
-    </div>
-</div>
+    <% @user.followers.each do |follower| %>
+      <%= render 'user_card', follower: follower%>
+    <% end %>
+<% end %>
 
 <%= link_to "Back", user_path(@user) %>
+
+<%= console %>
