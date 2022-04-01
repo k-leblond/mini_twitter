@@ -2,23 +2,17 @@
   <div class="column left">
     <% @user = current_user %>
     <h1 class="text-center">Welcome back, <%= "#{@user.name}" %> 🎉</h1>
-      <div class="stats">
-        <a href="<%= following_user_path(@user) %>">
-          <strong id="following" class="stat"><%= @user.following.count %></strong> following
-        </a>
-        <a href="<%= followers_user_path(@user) %>">
-          <strong id="followers" class="stat"> <%= @user.followers.count %></strong> followers
-        </a>
-      </div>
-    <div class="container">
-        <h3>Share with your community!</h3>
-          <%= simple_form_for @post, remote: true,
-            html: {data: {feed_subscription_target: "form", action: "ajax:success->feed-subscription#reset"}
-            } do |f| %>
-            <%= f.input :content, label: false, placeholder: "What's on your mind?" %>
-            <%= f.submit %>
-          <% end %>
-    </div>
+    <%= link_to "My profile", user_path(@user) %>
+      <%= render 'shared/stats' %>
+        <div class="container">
+            <h3>Share with your community!</h3>
+              <%= simple_form_for @post, remote: true,
+                html: {data: {feed_subscription_target: "form", action: "ajax:success->feed-subscription#reset"}
+                } do |f| %>
+                <%= f.input :content, label: false, placeholder: "What's on your mind?" %>
+                <%= f.submit %>
+              <% end %>
+        </div>
     <div class="container">
       <h3>Discover people to follow</h3>
       <%= link_to "Discover", users_url %>
