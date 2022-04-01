@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :posts, only: %i[new create destroy index]
+  resources :posts, only: %i[create destroy]
+  resources :relationships, only: %i[create destroy]
 
   resources :users do
     member do
