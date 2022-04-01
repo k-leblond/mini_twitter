@@ -20,8 +20,20 @@ anakin = User.create!(email: "anakin@skywalker.com", password: "123456", name: "
 yoda = User.create!(email: "yoda@starwars.com", password: "123456", name: "Yoda")
 shakespear = User.create!(email: "shake@spear.com", password: "123456", name: "Shakespear")
 rick = User.create!(email: "rick@morty.com", password: "123456", name: "Rick Sanchez")
-# jake = User.create!(email: "jake@peralta.com", password: "123456", name: "Jake Peralta")
+jake = User.create!(email: "jake@peralta.com", password: "123456", name: "Jake Peralta")
 maurice = User.create!(email: "maurice@moss.com", password: "123456", name: "Maurice Moss")
+
+puts "Users created!"
+
+puts "Creating followers/followings"
+users = User.all
+user = users.first
+following = users[1..9]
+followers = users[3..7]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
+
+puts "Done!"
 
 puts "Creating posts...."
 
