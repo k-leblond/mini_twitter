@@ -3,9 +3,11 @@
 <div class="container">
   <ul>
     <% @users.each do |user| %>
-    <li>
-  <%= link_to "#{user.name}", user_path(user) %>
-    </li>
+      <% unless current_user.following?(user) || current_user === user%>
+        <li>
+          <%= link_to "#{user.name}", user_path(user) %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>
