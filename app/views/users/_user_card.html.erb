@@ -1,12 +1,20 @@
-      <div class="user-card-name">
-          <%= follower.name %>
-      </div>
-        <div class="user-card-stats">
-          <a href="<%= following_user_path(@user) %>">
-            <strong id="following" class="stat"><%= follower.following.count %></strong> following
-          </a>
-          <a href="<%= followers_user_path(@user) %>">
-            <strong id="followers" class="stat"> <%= follower.followers.count %></strong> followers
-          </a>
-        </div>
-      </div>
+<div class="user-card">
+  <div class="user-avatar">
+    <% if @user.photo.key? %>
+      <%= cl_image_tag @user.photo.key, crop: :thumb, gravity: :face, class: 'rounded-pp' %>
+    <% else %>
+      <%= image_tag("avatardefaut.jpg", alt: "avatar")%>
+    <% end %>
+  </div>
+  <div class="user-card-name">
+    <%= follower.name %>
+  </div>
+    <div class="user-card-stats">
+      <a href="<%= following_user_path(@user) %>">
+      <strong id="following" class="stat"><%= follower.following.count %></strong> following
+    </a>
+      <a href="<%= followers_user_path(@user) %>">
+        <strong id="followers" class="stat"> <%= follower.followers.count %></strong> followers
+      </a>
+    </div>
+</div>
