@@ -28,4 +28,18 @@
 
 .user-card-name{
   display: flex;
+  align-items: center;
+  padding: 1em;
+}
+
+.card-content{
+  border: solid;
+  border-radius: inherit;
+  background-color: aliceblue;
+  padding: 2rem;
+}
+
+.card-header{
+  display: flex;
+  background-color: inherit;
 }
