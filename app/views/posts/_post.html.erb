@@ -14,7 +14,7 @@
   <div class="card-content">
     <p><%= post.content %></p>
     <p><%= post.likes.count %></p>
-    Posted <%= time_ago_in_words(post.created_at) %> ago.
+    <p id="post-time">Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
        <%= post.id %>
       <%= button_tag "Like", data: {reflex: "click->Likes#upvote", id: post.id} %>
       <% if current_user === post.user %>
