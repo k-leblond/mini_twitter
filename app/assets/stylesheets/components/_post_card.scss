@@ -6,4 +6,10 @@
   background-color: #e3efff;
   margin: 2rem;
   box-shadow: 5px 4px 6px #9c9aa4;
+    img{
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+    }
 }
