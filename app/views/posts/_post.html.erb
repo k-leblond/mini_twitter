@@ -1,5 +1,5 @@
 <div class="post-card">
-  <div class="card-header">
+  <div class="card-header-custom">
       <div class="user-avatar">
       <% @user ||= current_user %>
         <% if @user.photo.key? %>
@@ -14,13 +14,19 @@
     </div>
   <div class="card-content">
     <p><%= post.content %></p>
-    <p><%= post.likes.count %></p>
-    <p id="post-time">Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
-      <%= post.id %>
-      <%= button_tag "Like", data: {reflex: "click->Likes#upvote", id: post.id} %>
-      <% if current_user === post.user %>
-        <%= link_to "delete", post, method: :delete,
-            data: { confirm: "Are you sure?" } %>
-      <% end %>
-  </div>
+      <p id="post-time">Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
+    </div>
+      <div class="post-stats">
+
+        <%= button_tag "Like", data: {reflex: "click->Likes#upvote", id: post.id} do%>
+        <i class="fa-solid fa-heart"></i>
+        <% end %>
+        <% if current_user === post.user %>
+          <%= link_to post, method: :delete,
+              data: { confirm: "Are you sure?"
+              } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        <% end %>
+      </div>
 </div>

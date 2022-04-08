@@ -1,11 +1,14 @@
 .row {
   display: flex;
+  padding-bottom:8px;
 }
 
 .left {
   width: 40%;
+  // height: 40vh;
 }
 
 .right {
   width: 60%;
+  // height: 40vh;
 }

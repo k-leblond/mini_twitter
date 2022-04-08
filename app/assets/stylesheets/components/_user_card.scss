@@ -31,26 +31,3 @@
   align-items: center;
   padding: 1em;
 }
-
-.card-content{
-  border: solid;
-  border-radius: inherit;
-  background-color: aliceblue;
-  padding: 2rem;
-  p{
-    font-size: 24px;
-    font-weight: 600;
-
-  }
-}
-
-.card-header{
-  display: flex;
-  background-color: inherit;
-}
-
-#post-time{
-  color: rgb(205, 203, 200);
-  font-weight: 200;
-  font-size: 16px;
-}
