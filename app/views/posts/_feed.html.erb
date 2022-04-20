@@ -2,7 +2,9 @@
         <% @posts.order(id: :desc).each do | post | %>
           <%= render "posts/post", post: post %>
         <% end %>
+        <div class="center-pagination">
           <%= page_entries_info @posts %>
+        </div>
         <div class="pagination">
           <%= will_paginate @posts %>
         </div>

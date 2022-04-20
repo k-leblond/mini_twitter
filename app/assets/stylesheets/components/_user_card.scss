@@ -1,13 +1,14 @@
 .user-card {
-  display: flex;
-  flex-direction: column;
-  padding: 2vw;
-  border-radius: 20px;
   width: 20vw;
   height: 24vh;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .72);
+  background: rgba(0, 0, 0, .5);
+  border-radius: 20px;
+  padding: 2vw;
   transition: ease 300ms;
   text-decoration: none;
-  background-color: aqua;
+  color:whitesmoke;
+
 
   &:hover {
     transform: scale(1.05);
@@ -22,12 +23,27 @@
   }
 
   a{
-    text-decoration: none;
+    &:hover {
+      transform: scale(1.15);
+      cursor: pointer;
+      transition: ease 300ms;
+    }
   }
 }
 
 .user-card-name{
+  padding: 12px 1em 1em 1em;
+  font-weight: 700;
+  font-size: 24px;
   display: flex;
-  align-items: center;
-  padding: 1em;
+  color:whitesmoke;
+}
+
+.user-card-head{
+  display: flex;
+}
+
+.user-card-stats{
+  display: flex;
+  justify-content: space-between;
 }

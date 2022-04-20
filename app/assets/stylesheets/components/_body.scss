@@ -18,3 +18,12 @@
   height: 78vh;
   overflow-y: overlay;
 }
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+body{
+  font-family: 'Manrope', sans-serif;
+}
