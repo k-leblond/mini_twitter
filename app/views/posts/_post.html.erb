@@ -1,9 +1,9 @@
 <div class="post-card">
   <div class="card-header-custom">
       <div class="user-avatar">
-      <% @user ||= current_user %>
-        <% if @user.photo.key? %>
-          <%= cl_image_tag @user.photo.key, crop: :thumb, gravity: :face, class: 'rounded-pp' %>
+      <%# <% @user ||= current_user %>
+        <% if post.user.photo.key? %>
+          <%= cl_image_tag post.user.photo.key, crop: :thumb, gravity: :face, class: 'rounded-pp' %>
         <% else %>
           <%= image_tag("avatardefaut.jpg", alt: "avatar")%>
         <% end %>
