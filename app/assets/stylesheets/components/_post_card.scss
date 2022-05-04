@@ -30,7 +30,8 @@
 .card-header-custom{
   display: flex;
   height: 8vh;
-  margin-bottom: 12px;
+  margin: 0px 12px 12px 10px;
+  justify-content: space-between;
 }
 
 #post-time{
@@ -42,5 +43,17 @@
 }
 
 .post-stats{
+  padding: 0rem 1rem 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
 
+
+.like-button{
+  border:none;
+  background-color: transparent;
+}
+
+.delete-button{
+  color: red;
 }

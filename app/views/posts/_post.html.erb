@@ -8,8 +8,17 @@
           <%= image_tag("avatardefaut.jpg", alt: "avatar")%>
         <% end %>
       </div>
-      <div class="user-card-name">
+      <div class="user-card-name col-10">
         <h3><%= post.user.name %></h3>
+      </div>
+      <div class="delete-button">
+        <% if current_user === post.user %>
+          <%= link_to post, method: :delete,
+          data: { confirm: "Are you sure?"
+          } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
   <div class="card-content">
@@ -17,16 +26,13 @@
       <p id="post-time">Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
     </div>
       <div class="post-stats">
-
-        <%= button_tag "Like", data: {reflex: "click->Likes#upvote", id: post.id} do%>
-        <i class="fa-solid fa-heart"></i>
-        <% end %>
-        <% if current_user === post.user %>
-          <%= link_to post, method: :delete,
-              data: { confirm: "Are you sure?"
-              } do %>
-            <i class="fa-solid fa-trash"></i>
+        <div class="post-like">
+          <span><%= pluralize(post.likes.count,"like") %> </span>
+        </div>
+        <div class="post-action">
+          <%= button_tag "Like", data: {reflex: "click->Likes#upvote", id: post.id}, class: "like-button" do%>
+            <i class="fa-solid fa-heart"></i>
           <% end %>
-        <% end %>
+        </div>
       </div>
 </div>
