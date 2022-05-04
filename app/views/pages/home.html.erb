@@ -15,20 +15,19 @@
 
               </div>
               <div class="col-1 submit-div">
-                  <%= f.submit class: 'submit-button', value: "Post" %>
+                  <%= f.submit class: 'submit-button', value: "Post", data: { disable_with: "Post" } %>
                   <%# <%= f.submit class: 'submit-button', value: "Post", data: { disable_with: "Posting..." }%>
                 <% end %>
               </div>
               </div>
         </div>
-    <div class="container">
+    <div class="container discover">
       <h3><%= link_to "DISCOVER", users_url, class: "btn-discover"%> people to follow</h3>
-
     </div>
   </div>
   <div class="column right">
     <h1>Feed</h1>
-    <div class="container">
+    <div class="container post_feed">
       <%= render "posts/feed", posts: @posts, user:@user %>
     </div>
   </div>

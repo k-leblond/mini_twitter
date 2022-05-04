@@ -1,15 +1,43 @@
 .row {
   display: flex;
-  padding-bottom:8px;
+  // padding-bottom:8px;
   width: 100vw;
+  // height: 100%;
+  // margin-right: 0px;
+  margin: 0px;
 }
 
 .left {
   width: 40%;
-  // height: 40vh;
+  height: 40vh;
+  margin:0px;
+  padding:0px;
+  // margin-left: 0px;
+  // margin-right: 0px;
+  // padding-left: 0px;
+  // padding-right: 0px;
 }
 
 .right {
   width: 60%;
-  // height: 40vh;
+  margin:0px;
+  padding:0px;
+  height: 40vh;
+}
+
+.discover{
+  margin-top: 10vh;
+}
+
+.post_feed{
+  padding:0px;
+  height: 76vh;
+}
+
+.container-message{
+  height: 76vh;
+  // overflow-y: overlay;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-right: 24px;
 }
